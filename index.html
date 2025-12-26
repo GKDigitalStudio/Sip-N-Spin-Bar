@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sip N Spin Bar & Grill - Hays, Kansas</title>
+    <meta name="description" content="Best bar & grill in Hays KS - Sip N Spin. Burgers, wings, fries, cold drinks. Historic downtown spot with live entertainment.">
+    <meta name="keywords" content="bar Hays KS, grill Hays Kansas, Sip N Spin, burgers Hays, wings Hays">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:400,500,700|Source+Sans+Pro:300,400,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <html scroll-behavior: smooth>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Source Sans Pro', sans-serif; background: #ffffff; color: #959393; line-height: 1.6; }
+        a { text-decoration: none; color: #f74a00; }
+        a:hover { color: #000000; }
+        img { max-width: 100%; display: block; }
+        .container { width: 90%; max-width: 1140px; margin: 0 auto; }
+        .section-padding { padding: 80px 0; }
+        .text-center { text-align: center; }
+        :root { --bg-dark: #000000; --accent: #e4b95b; --accent2: #f74a00; --heading: #102035; }
+        
+        /* HEADER & NAV */
+        header { position: fixed; top: 0; left: 0; right: 0; z-index: 999; background: rgba(0,0,0,0.9); }
+        .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 10px 5%; }
+        .nav-logo img { max-height: 56px; }
+        .nav-menu { list-style: none; display: flex; gap: 25px; font-weight: 500; }
+        .nav-menu li a { color: #ffffff; text-transform: uppercase; font-size: 13px; }
+        .nav-menu li a:hover { color: var(--accent); }
+        .nav-cta { margin-left: 20px; }
+        .nav-cta button { padding: 6px 16px; border-radius: 999px; border: none; background: var(--accent2); color: #fff; font-size: 13px; font-weight: 600; cursor: pointer; }
+        .nav-cta button:hover { background: #c13a00; }
+        
+        /* MOBILE HAMBURGER */
+        .hamburger { display: none; flex-direction: column; justify-content: center; align-items: center; width: 38px; height: 32px; border-radius: 6px; background: var(--accent2); cursor: pointer; }
+        .hamburger span { width: 20px; height: 3px; background: #fff; margin: 2px 0; transition: all 0.3s ease; }
+        .hamburger.active span:nth-child(1) { transform: translateY(5px) rotate(45deg); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: translateY(-5px) rotate(-45deg); }
+        @media (max-width: 768px) {
+            .nav-menu, .nav-cta { display: none; }
+            .hamburger { display: flex; }
+            .nav-menu.mobile-active { position: absolute; top: 60px; right: 5%; left: 5%; background: #111; border-radius: 8px; padding: 10px 0; display: flex; flex-direction: column; gap: 8px; }
+            .nav-menu.mobile-active li { text-align: center; }
+            .nav-menu.mobile-active li a { display: block; padding: 8px 0; }
+        }
+        
+        /* HERO SLIDER */
+        .hero { position: relative; margin-top: 80px; height: 420px; overflow: hidden; }
+        .hero-slide { position: absolute; inset: 0; background-size: cover; background-position: center; transition: opacity 1s ease-in-out; opacity: 0; }
+        .hero-slide.active { opacity: 1; }
+        .hero-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.55); }
+        .hero-content-wrap { position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: #ffffff; }
+        .hero-logo { width: 160px; height: 160px; border-radius: 50%; border: 4px solid var(--accent); background: #f5e7cf; display: flex; align-items: center; justify-content: center; margin-bottom: 22px; }
+        .hero-logo img { width: 140px; height: 140px; object-fit: contain; }
+        .hero-title { font-family: 'Quicksand', sans-serif; font-size: 34px; letter-spacing: 1px; margin-bottom: 8px; }
+        .hero-sub { font-size: 15px; letter-spacing: 3px; text-transform: uppercase; color: #e2e2e2; }
+        .hero-tagline { margin-top: 12px; font-size: 15px; color: #f1f1f1; }
+        
+        /* HERO BUTTONS */
+        .hero-buttons-floating { position: absolute; bottom: 25px; left: 50%; transform: translateX(-50%); display: flex; gap: 12px; z-index: 3; flex-wrap: wrap; justify-content: center; }
+        .hero-btn { padding: 9px 18px; border-radius: 999px; border: none; font-size: 13px; font-weight: 600; color: #ffffff; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; min-width: 120px; box-shadow: 0 8px 18px rgba(0,0,0,0.35); opacity: 0.95; transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s; }
+        .hero-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 26px rgba(0,0,0,0.5); opacity: 1; }
+        .btn-zomato { background: #E23744; }
+        .btn-swiggy { background: #FC8019; }
+        .btn-book { background: var(--accent); color: #000; }
+        .btn-book:hover { background: #f5d27e; color: #000; }
+        
+        /* Section titles */
+        .section-title { font-family: 'Quicksand', sans-serif; color: var(--heading); font-size: 34px; margin-bottom: 10px; }
+        .section-subtitle { text-transform: uppercase; letter-spacing: 4px; font-size: 13px; color: var(--accent2); margin-bottom: 25px; }
+        
+        /* ABOUT with 4 animated images */
+        .welcome-grid { display: flex; flex-wrap: wrap; gap: 40px; align-items: center; }
+        .welcome-text { flex: 1 1 320px; }
+        .welcome-text p { margin-bottom: 15px; font-size: 15px; }
+        .welcome-images { flex: 1 1 320px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+        .welcome-img-wrapper { overflow: hidden; border-radius: 10px; opacity: 0; transform: translateX(40px); transition: all 0.7s ease; }
+        .welcome-img-wrapper.left-start { transform: translateX(-40px); }
+        .welcome-img-wrapper.visible { opacity: 1; transform: translateX(0); }
+        .welcome-img-wrapper img { width: 100%; height: 170px; object-fit: cover; }
+        
+        /* MENU */
+        .menu-section { background: #000000 url(https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=1600) center/cover no-repeat; position: relative; }
+        .menu-section::before { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.8); }
+        .menu-inner { position: relative; color: #ffffff; }
+        .menu-title { color: #ffffff; }
+        .menu-category-row { display: flex; flex-wrap: wrap; gap: 30px; }
+        .menu-category { flex: 1 1 220px; }
+        .menu-category h3 { font-family: 'Quicksand', sans-serif; font-size: 22px; color: var(--accent); margin-bottom: 10px; }
+        .menu-item { display: flex; justify-content: space-between; font-size: 14px; border-bottom: 1px dashed rgba(255,255,255,0.15); padding: 6px 0; }
+        .menu-item-name { color: #f1f1f1; }
+        .menu-item-dot { flex: 1; border-bottom: 1px dotted rgba(255,255,255,0.25); margin: 0 8px; }
+        .menu-item-price { color: var(--accent2); }
+        .category-btn { display: inline-block; margin-top: 12px; padding: 8px 18px; border-radius: 999px; border: 1px solid var(--accent); color: #ffffff; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; }
+        .category-btn:hover { background: var(--accent); color: #000; }
+        .full-menu-btn-wrap { text-align: center; margin-top: 40px; }
+        .full-menu-btn { display: inline-block; padding: 12px 32px; border-radius: 999px; background: var(--accent2); color: #fff; font-weight: 600; letter-spacing: 1px; }
+        .full-menu-btn:hover { background: #c13a00; color: #fff; }
+        
+        /* GALLERY slider */
+        .gallery-section { background: #ffffff; }
+        .gallery-wrapper { max-width: 900px; margin: 0 auto; position: relative; }
+        .gallery-track { position: relative; overflow: hidden; border-radius: 12px; }
+        .gallery-slide { display: none; }
+        .gallery-slide.active { display: block; }
+        .gallery-slide img { width: 100%; height: 380px; object-fit: cover; }
+        .gallery-arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; border-radius: 50%; border: none; background: rgba(0,0,0,0.6); color: #fff; font-size: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 2; }
+        .gallery-arrow.left { left: 10px; }
+        .gallery-arrow.right { right: 10px; }
+        .gallery-arrow:hover { background: rgba(0,0,0,0.85); }
+        .gallery-dots { display: flex; justify-content: center; gap: 8px; margin-top: 12px; }
+        .gallery-dot { width: 10px; height: 10px; border-radius: 50%; border: 1px solid #666; cursor: pointer; }
+        .gallery-dot.active { background: #333; border-color: #333; }
+        
+        /* TESTIMONIALS */
+        .testimonials-section { background: #ffffff; }
+        .test-slider { position: relative; overflow: hidden; max-width: 760px; margin: 0 auto; }
+        .test-slide { display: none; text-align: center; padding: 20px 10px 10px; }
+        .test-slide.active { display: block; }
+        .test-quote { font-style: italic; color: #555; margin-bottom: 15px; }
+        .test-name { font-weight: 600; color: var(--heading); }
+        .test-nav { margin-top: 20px; display: flex; justify-content: center; align-items: center; gap: 20px; }
+        .test-arrow { width: 34px; height: 34px; border-radius: 50%; border: 1px solid #ccc; display: flex; align-items: center; justify-content: center; cursor: pointer; color: #555; }
+        .test-dots { display: flex; gap: 8px; }
+        .test-dot { width: 10px; height: 10px; border-radius: 50%; border: 1px solid #ccc; cursor: pointer; }
+        .test-dot.active { background: var(--accent2); border-color: var(--accent2); }
+        
+        /* FOOTER */
+        footer { background: #000000; color: #ffffff; padding-top: 60px; }
+        .footer-top { padding-bottom: 40px; border-bottom: 1px solid #222; }
+        .footer-cols { display: flex; flex-wrap: wrap; gap: 30px; }
+        .footer-col { flex: 1 1 220px; font-size: 14px; }
+        .footer-col h4 { font-family: 'Quicksand', sans-serif; font-size: 18px; margin-bottom: 15px; color: var(--accent); }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 6px; }
+        .footer-bottom { text-align: center; padding: 18px 0; font-size: 13px; color: #888; }
+        .footer-social { display: flex; gap: 12px; margin-top: 10px; }
+        .footer-social a { width: 32px; height: 32px; border-radius: 50%; background: #222; display: flex; align-items: center; justify-content: center; font-size: 16px; color: #ffffff; }
+        .footer-social a:hover { background: var(--accent2); }
+        .map-btn { display: inline-block; margin-top: 6px; padding: 8px 18px; border-radius: 999px; background: var(--accent); color: #000; font-size: 13px; font-weight: 600; letter-spacing: 0.5px; }
+        .map-btn:hover { background: #f5d27e; color: #000; }
+        
+        /* BOOK TABLE MODAL */
+        .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.7); display: none; align-items: center; justify-content: center; z-index: 1000; }
+        .modal-overlay.active { display: flex; }
+        .modal-box { background: #111; border-radius: 10px; padding: 25px 20px; width: 90%; max-width: 420px; color: #fff; position: relative; }
+        .modal-box h3 { font-family: 'Quicksand', sans-serif; font-size: 22px; color: var(--accent); text-align: center; margin-bottom: 10px; }
+        .modal-box p { font-size: 13px; text-align: center; margin-bottom: 15px; color: #ccc; }
+        .modal-close { position: absolute; top: 10px; right: 12px; font-size: 18px; cursor: pointer; color: #fff; }
+        .modal-form .form-row { margin-bottom: 12px; }
+        .modal-form label { display: block; font-size: 13px; margin-bottom: 4px; }
+        .modal-form input, .modal-form textarea, .modal-form select { width: 100%; padding: 8px 10px; border-radius: 6px; border: 1px solid #444; background: #1b1b1b; color: #fff; font-size: 13px; }
+        .modal-form textarea { min-height: 70px; resize: vertical; }
+        .modal-form button { width: 100%; margin-top: 8px; padding: 9px 0; border-radius: 999px; border: none; background: var(--accent2); color: #fff; font-weight: 600; cursor: pointer; }
+        .modal-form button:hover { background: #c13a00; }
+        
+        /* Responsive tweaks */
+        @media (max-width: 768px) {
+            .hero-title { font-size: 28px; }
+            .welcome-grid { flex-direction: column; }
+            .menu-category-row { flex-direction: column; }
+            .gallery-slide img { height: 260px; }
+        }
+    </style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Restaurant",
+        "name": "Sip N Spin Bar & Grill",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "209 West 10th Street",
+            "addressLocality": "Hays",
+            "addressRegion": "KS",
+            "postalCode": "67601"
+        },
+        "telephone": "(785) 625-9292",
+        "url": "https://YOURUSERNAME.github.io/YOUR-REPO-NAME/",
+        "servesCuisine": "American, Bar Food, Burgers, Wings"
+    }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="nav-inner">
+            <div class="nav-logo">
+                <img src="sipnspinlogo.png" alt="Sip N Spin Bar & Grill Logo">
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#welcome">About Us</a></li>
+                <li><a href="menu.html">Explore Our Menu</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#testimonials">What Our Clients Say</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-cta">
+                <button type="button" id="navBookBtn">Book a Table</button>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-slide active" style="background-image: url(https://images.pexels.com/photos/941861/pexels-photo-941861.jpeg?auto=compress&cs=tinysrgb&w=1600)"></div>
+        <div class="hero-slide" style="background-image: url(https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=1600)"></div>
+        <div class="hero-slide" style="background-image: url(https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg?auto=compress&cs=tinysrgb&w=1600)"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content-wrap">
+            <div class="container">
+                <div class="hero-logo">
+                    <img src="sipnspinlogo.png" alt="Sip N Spin Bar & Grill">
+                </div>
+                <h1 class="hero-title">Sip N Spin Bar & Grill</h1>
+                <div class="hero-sub">209 W 10th St, Hays KS</div>
+                <p class="hero-tagline">Burgers • Wings • Cold Drinks • Live Entertainment</p>
+            </div>
+        </div>
+        <div class="hero-buttons-floating">
+            <a href="https://www.doordash.com" target="_blank" class="hero-btn btn-zomato">Order on DoorDash</a>
+            <a href="https://www.ubereats.com" target="_blank" class="hero-btn btn-swiggy">Order on UberEats</a>
+            <button type="button" class="hero-btn btn-book" id="heroBookBtn">Book a Table</button>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="welcome" class="section-padding">
+        <div class="container">
+            <div class="text-center">
+                <div class="section-subtitle">About Us</div>
+                <h2 class="section-title">Welcome to Sip N Spin Bar & Grill</h2>
+            </div>
+            <div class="welcome-grid">
+                <div class="welcome-text">
+                    <p>Sip N Spin Bar & Grill brings classic American bar food to downtown Hays with juicy burgers, loaded fries, chicken wings, and ice-cold drinks in a historic atmosphere.</p>
+                    <p>Family-friendly daytime kitchen, lively evenings with darts, pool tables, and live entertainment. Perfect spot for game day or casual hangouts.</p>
+                    <p>Established local favorite serving Hays since years - from steak philly fries to daily specials, everything's made fresh daily.</p>
+                </div>
+                <div class="welcome-images">
+                    <div class="welcome-img-wrapper right-start">
+                        <img src="https://images.pexels.com/photos/941861/pexels-photo-941861.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="">
+                    </div>
+                    <div class="welcome-img-wrapper left-start">
+                        <img src="https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="">
+                    </div>
+                    <div class="welcome-img-wrapper right-start">
+                        <img src="https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="">
+                    </div>
+                    <div class="welcome-img-wrapper left-start">
+                        <img src="https://images.pexels.com/photos/958546/pexels-photo-958546.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MENU -->
+    <section id="menu" class="section-padding menu-section">
+        <div class="container menu-inner">
+            <div class="text-center">
+                <div class="section-subtitle">Our Menu</div>
+                <h2 class="section-title menu-title">Explore Our Menu</h2>
+            </div>
+            <div class="menu-category-row" style="margin-top: 40px;">
+                <div class="menu-category">
+                    <h3>Starters & Entrées</h3>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Chicken Wings</span>
+                        <span class="menu-item-dot"></span>
+                        <span class="menu-item-price">$10.99</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Onion Rings</span>
+                        <span class="menu-item-dot"></span>
+                        <span class="menu-item-price">$6.99</span>
+                    </div>
+                    <a href="menu.html#starters" class="category-btn">Explore all Starters</a>
+                </div>
+                <div class="menu-category">
+                    <h3>Burgers</h3>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Classic Cheeseburger</span>
+                        <span class="menu-item-dot"></span>
+                        <span class="menu-item-price">$12.99</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Bacon Ranch</span>
+                        <span class="menu-item-dot"></span>
+                        <span class="menu-item-price">$14.99</span>
+                    </div>
+                    <a href="menu.html#burgers" class="category-btn">Explore all Burgers</a>
+                </div>
+                <div class="menu-category">
+                    <h3>Sides</h3>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Steak Fries</span>
+                        <span class="menu-item-dot"></span>
+                        <span class="menu-item-price">$4.99</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Tater Tots</span>
+                        <span class="menu-item-dot"></span>
+                        <span class="menu-item-price">$4.99</span>
+                    </div>
+                    <a href="menu.html#sides" class="category-btn">Explore all Sides</a>
+                </div>
+                <div class="menu-category">
+                    <h3>Drinks</h3>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Domestic Beer</span>
+                        <span class="menu-item-dot"></span>
+                        <span class="menu-item-price">$4.50</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-item-name">Soda</span>
+                        <span class="menu-item-dot"></span>
+                        <span class="menu-item-price">$2.99</span>
+                    </div>
+                    <a href="menu.html#drinks" class="category-btn">Explore all Drinks</a>
+                </div>
+            </div>
+            <div class="full-menu-btn-wrap">
+                <a href="menu.html" class="full-menu-btn">Explore Full Menu</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery" class="section-padding gallery-section">
+        <div class="container">
+            <div class="text-center" style="margin-bottom: 25px;">
+                <div class="section-subtitle">Gallery</div>
+                <h2 class="section-title">Inside Sip N Spin</h2>
+            </div>
+            <div class="gallery-wrapper">
+                <div class="gallery-track">
+                    <div class="gallery-slide active">
+                        <img src="https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="">
+                    </div>
+                    <div class="gallery-slide">
+                        <img src="https://images.pexels.com/photos/941861/pexels-photo-941861.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="">
+                    </div>
+                    <div class="gallery-slide">
+                        <img src="https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="">
+                    </div>
+                </div>
+                <button class="gallery-arrow left" id="galleryPrev10094">&#8249;</button>
+                <button class="gallery-arrow right" id="galleryNext10095">&#8250;</button>
+                <div class="gallery-dots" id="galleryDots">
+                    <span class="gallery-dot active" data-index="0"></span>
+                    <span class="gallery-dot" data-index="1"></span>
+                    <span class="gallery-dot" data-index="2"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" class="section-padding testimonials-section">
+        <div class="container text-center">
+            <div class="section-subtitle">Testimonials</div>
+            <h2 class="section-title" style="color: #00a8ff;">What Our Clients Say</h2>
+            <p style="font-size: 13px; color: #000; margin-top: 4px; margin-bottom: 18px;">100k+ satisfied customers</p>
+            <div class="test-slider" id="testSlider">
+                <div class="test-slide active">
+                    <p class="test-quote">"Best wings and burgers in Hays! Great atmosphere for watching games."</p>
+                    <div class="test-name">Mike Johnson</div>
+                </div>
+                <div class="test-slide">
+                    <p class="test-quote">"Love the loaded fries and cold beer. Staff is super friendly."</p>
+                    <div class="test-name">Sarah Wilson</div>
+                </div>
+                <div class="test-slide">
+                    <p class="test-quote">"Perfect downtown spot. Live music makes it even better!"</p>
+                    <div class="test-name">Tom Reynolds</div>
+                </div>
+            </div>
+            <div class="test-nav">
+                <div class="test-arrow" id="prevBtn10094">&#8249;</div>
+                <div class="test-dots" id="dots">
+                    <span class="test-dot active" data-index="0"></span>
+                    <span class="test-dot" data-index="1"></span>
+                    <span class="test-dot" data-index="2"></span>
+                </div>
+                <div class="test-arrow" id="nextBtn10095">&#8250;</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="contact">
+        <div class="container footer-top">
+            <div class="footer-cols">
+                <div class="footer-col">
+                    <h4>Sip N Spin Bar & Grill</h4>
+                    <p>209 West 10th Street,<br>Hays, KS 67601</p>
+                    <p>Phone: (785) 625-9292</p>
+                    <p>Email: info@sipnspin.com</p>
+<a href="https://maps.app.goo.gl/H61czk5A4NHhZNJe9" target="_blank" class="map-btn">Find Us on Maps</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Opening Hours</h4>
+                    <p>Mon-Sat: 11am - Late</p>
+                    <p>Sun: 11am - 9pm</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#welcome">About Us</a></li>
+                        <li><a href="menu.html">Explore Our Menu</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#testimonials">What Our Clients Say</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow Us</h4>
+                    <div class="footer-social">
+                        <a href="https://facebook.com" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://instagram.com" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2025 Sip N Spin Bar & Grill. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- BOOK TABLE MODAL -->
+    <div class="modal-overlay" id="bookModal">
+        <div class="modal-box">
+            <span class="modal-close" id="modalClose">&times;</span>
+            <h3>Reservation</h3>
+            <p>Book your table now and enjoy a great time at Sip N Spin Bar & Grill.</p>
+            <form class="modal-form" id="reservationForm">
+                <div class="form-row">
+                    <label>Name</label>
+                    <input type="text" required>
+                </div>
+                <div class="form-row">
+                    <label>Phone</label>
+                    <input type="tel" required>
+                </div>
+                <div class="form-row">
+                    <label>Email</label>
+                    <input type="email">
+                </div>
+                <div class="form-row">
+                    <label>Date</label>
+                    <input type="date" required>
+                </div>
+                <div class="form-row">
+                    <label>Time</label>
+                    <input type="time" required>
+                </div>
+                <div class="form-row">
+                    <label>Guests</label>
+                    <select required>
+                        <option value="">Select guests</option>
+                        <option>2</option>
+                        <option>4</option>
+                        <option>6</option>
+                        <option>8+</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <label>Message</label>
+                    <textarea placeholder="Special requests"></textarea>
+                </div>
+                <button type="submit">Book Now</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // HERO SLIDER
+        const heroSlides = document.querySelectorAll('.hero-slide');
+        let heroIndex = 0;
+        function changeHero() {
+            heroSlides[heroIndex].classList.remove('active');
+            heroIndex = (heroIndex + 1) % heroSlides.length;
+            heroSlides[heroIndex].classList.add('active');
+        }
+        setInterval(changeHero, 6000);
+
+        // ABOUT images scroll animation
+        const welcomeImgs = document.querySelectorAll('.welcome-img-wrapper');
+        function revealWelcome() {
+            const trigger = window.innerHeight * 0.85;
+            welcomeImgs.forEach(el => {
+                const top = el.getBoundingClientRect().top;
+                if (top < trigger) el.classList.add('visible');
+            });
+        }
+        window.addEventListener('scroll', revealWelcome);
+        window.addEventListener('load', revealWelcome);
+
+        // TESTIMONIAL slider
+        const slides = document.querySelectorAll('.test-slide');
+        const dots = document.querySelectorAll('.test-dot');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        let current = 0;
+        function showSlide(idx) {
+            slides.forEach((s, i) => s.classList.toggle('active', i === idx));
+            dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+            current = idx;
+        }
+        nextBtn.addEventListener('click', () => {
+            let n = current + 1;
+            if (n >= slides.length) n = 0;
+            showSlide(n);
+        });
+        prevBtn.addEventListener('click', () => {
+            let n = current - 1;
+            if (n < 0) n = slides.length - 1;
+            showSlide(n);
+        });
+        dots.forEach(d => d.addEventListener('click', () => {
+            const idx = parseInt(d.dataset.index, 10);
+            showSlide(idx);
+        }));
+        setInterval(() => nextBtn.click(), 7000);
+
+        // GALLERY slider
+        const gSlides = document.querySelectorAll('.gallery-slide');
+        const gDots = document.querySelectorAll('.gallery-dot');
+        const gPrev = document.getElementById('galleryPrev');
+        const gNext = document.getElementById('galleryNext');
+        let gCurrent = 0;
+        function showGallery(idx) {
+            gSlides.forEach((s, i) => s.classList.toggle('active', i === idx));
+            gDots.forEach((d, i) => d.classList.toggle('active', i === idx));
+            gCurrent = idx;
+        }
+        gNext.addEventListener('click', () => {
+            let n = gCurrent + 1;
+            if (n >= gSlides.length) n = 0;
+            showGallery(n);
+        });
+        gPrev.addEventListener('click', () => {
+            let n = gCurrent - 1;
+            if (n < 0) n = gSlides.length - 1;
+            showGallery(n);
+        });
+        gDots.forEach(d => d.addEventListener('click', () => {
+            const idx = parseInt(d.dataset.index, 10);
+            showGallery(idx);
+        }));
+        setInterval(() => gNext.click(), 6500);
+
+        // MOBILE NAV HAMBURGER
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('mobile-active');
+        });
+
+        // BOOK TABLE MODAL
+        const bookModal = document.getElementById('bookModal');
+        const navBookBtn = document.getElementById('navBookBtn');
+        const heroBookBtn = document.getElementById('heroBookBtn');
+        const modalClose = document.getElementById('modalClose');
+        function openModal() { bookModal.classList.add('active'); }
+        function closeModal() { bookModal.classList.remove('active'); }
+        navBookBtn.addEventListener('click', openModal);
+        heroBookBtn.addEventListener('click', openModal);
+        modalClose.addEventListener('click', closeModal);
+        bookModal.addEventListener('click', e => {
+            if (e.target === bookModal) closeModal();
+        });
+        document.getElementById('reservationForm').addEventListener('submit', e => {
+            e.preventDefault();
+            alert('Your table request has been sent! We will confirm on call.');
+            closeModal();
+        });
+    </script>
+</body>
+</html>

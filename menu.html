@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Menu – Sip N Spin Bar & Grill</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=Quicksand:400,500,700|Source+Sans+Pro:300,400,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;}
+body{
+    font-family:"Source Sans Pro",sans-serif;
+    background:#0b0b0b;
+    color:#f5f5f5;
+    line-height:1.5;
+}
+:root{
+    --accent:#f4c544;
+    --accent2:#f28b30;
+    --heading:#ffffff;
+    --muted:#bbbbbb;
+    --card:#141414;
+    --border:#222222;
+    --veg:#00c853;
+    --nonveg:#ff3b30;
+}
+
+/* Layout */
+.page-wrap{
+    max-width:1100px;
+    margin:0 auto;
+    padding:0 16px 40px;
+}
+
+/* Top bar */
+.top-bar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:12px 0 4px;
+}
+.brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+.brand img{
+    height:42px;
+    width:42px;
+    border-radius:50%;
+    object-fit:cover;
+}
+.brand h1{
+    font-family:"Quicksand",sans-serif;
+    font-size:20px;
+    color:#ffffff;
+}
+.back-home{
+    font-size:13px;
+    padding:7px 16px;
+    border-radius:999px;
+    border:1px solid #444;
+    color:#ffffff;
+    text-decoration:none;
+}
+.back-home:hover{
+    background:#ffffff;
+    color:#000;
+}
+
+/* Page hero */
+.page-hero{
+    background:url("https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=1600") center/cover no-repeat;
+    position:relative;
+    border-radius:18px;
+    overflow:hidden;
+    margin-bottom:26px;
+}
+.page-hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.72);
+}
+.page-hero-inner{
+    position:relative;
+    padding:60px 26px 70px;
+}
+.page-heading{
+    font-family:"Quicksand",sans-serif;
+    font-size:30px;
+    color:#fff;
+    margin-bottom:6px;
+}
+.page-sub{
+    font-size:14px;
+    color:#dddddd;
+    max-width:460px;
+}
+.hero-chips{
+    margin-top:26px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+.cat-chip{
+    border-radius:999px;
+    padding:7px 14px;
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    border:1px solid rgba(255,255,255,0.35);
+    color:#ffffff;
+    text-decoration:none;
+}
+.cat-chip:hover{
+    border-color:var(--accent);
+    color:var(--accent);
+}
+
+/* Legend */
+.legend{
+    display:flex;
+    gap:16px;
+    font-size:12px;
+    color:var(--muted);
+    margin-bottom:10px;
+}
+.legend span{
+    display:flex;
+    align-items:center;
+    gap:6px;
+}
+.dot{
+    display:inline-block;
+    width:9px;
+    height:9px;
+    border-radius:50%;
+    margin-right:6px;
+}
+.dot-veg{background:var(--veg);}
+.dot-nonveg{background:var(--nonveg);}
+
+/* Sections */
+.menu-section{
+    border-bottom:1px solid #1c1c1c;
+    padding:26px 0 24px;
+}
+.section-title{
+    font-family:"Quicksand",sans-serif;
+    font-size:24px;
+    color:var(--heading);
+    margin-bottom:4px;
+}
+.section-tag{
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:3px;
+    color:var(--accent2);
+    margin-bottom:18px;
+}
+
+/* Grid */
+.menu-grid{
+    display:flex;
+    flex-wrap:wrap;
+    gap:22px;
+}
+.menu-col{
+    flex:1 1 260px;
+}
+
+/* Item */
+.menu-item{
+    padding:12px 0;
+    border-bottom:1px dashed #262626;
+}
+.menu-item-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:10px;
+}
+.menu-name{
+    font-size:15px;
+    color:#ffffff;
+}
+.menu-price{
+    font-size:14px;
+    color:var(--accent);
+    white-space:nowrap;
+}
+.menu-desc{
+    font-size:13px;
+    color:var(--muted);
+    margin-top:4px;
+}
+
+/* Explore button */
+.section-cta{
+    margin-top:18px;
+}
+.section-cta a{
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    padding:7px 16px;
+    border-radius:999px;
+    border:1px solid #444;
+    color:#ffffff;
+    text-decoration:none;
+}
+.section-cta a:hover{
+    border-color:var(--accent);
+    color:var(--accent);
+}
+
+/* Responsive */
+@media(max-width:700px){
+    .page-hero-inner{padding:40px 18px 48px;}
+    .page-heading{font-size:24px;}
+}
+</style>
+</head>
+<body>
+
+<div class="page-wrap">
+
+    <div class="top-bar">
+        <div class="brand">
+            <img src="https://images.pexels.com/photos/946381/pexels-photo-946381.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Sip N Spin Logo">
+            <h1>Sip N Spin Bar &amp; Grill</h1>
+        </div>
+        <a href="index.html" class="back-home"><i class="fa fa-arrow-left"></i> Back to Home</a>
+    </div>
+
+    <section class="page-hero">
+        <div class="page-hero-inner">
+            <h2 class="page-heading">Food &amp; Drinks Menu</h2>
+            <p class="page-sub">
+                Burgers, wings, wraps, sides and daily specials from Sip N Spin Bar &amp; Grill – fresh off the grill with your favorite sauces and add‑ons.
+            </p>
+            <div class="hero-chips">
+                <a href="#starters" class="cat-chip">Starters &amp; Entrées</a>
+                <a href="#burgers" class="cat-chip">Burgers</a>
+                <a href="#special-burgers" class="cat-chip">Specialty Burgers</a>
+                <a href="#phillies" class="cat-chip">Phillies &amp; Sandwiches</a>
+                <a href="#salads" class="cat-chip">Salads</a>
+                <a href="#wraps" class="cat-chip">Wraps</a>
+                <a href="#chicken-coop" class="cat-chip">The Chicken Coop</a>
+                <a href="#mexican" class="cat-chip">Mexican</a>
+                <a href="#sides" class="cat-chip">Sides</a>
+                <a href="#additions" class="cat-chip">Additions</a>
+                <a href="#drinks" class="cat-chip">Drinks</a>
+                <a href="#kids-meal" class="cat-chip">Kids Meal</a>
+                <a href="#daily-specials" class="cat-chip">Daily Specials</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="legend">
+        <span><span class="dot dot-veg"></span>Veg</span>
+        <span><span class="dot dot-nonveg"></span>Non‑Veg</span>
+    </div>
+
+    <!-- Starters & Entrees -->
+    <section id="starters" class="menu-section">
+        <h3 class="section-title">Starters &amp; Entrées</h3>
+        <div class="section-tag">Shareables &amp; Quick Bites</div>
+
+        <div class="menu-grid">
+            <div class="menu-col">
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-veg"></span> Pizza Fries – Small</div>
+                        <div class="menu-price">5.99</div>
+                    </div>
+                    <div class="menu-desc">Topped with pepperoni, marinara, mozzarella &amp; Parmesan cheeses.</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-veg"></span> Pizza Fries – Large</div>
+                        <div class="menu-price">7.99</div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-nonveg"></span> Steak Philly Fries – Small</div>
+                        <div class="menu-price">7.99</div>
+                    </div>
+                    <div class="menu-desc">Grilled steak, peppers, onions &amp; queso.</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-nonveg"></span> Steak Philly Fries – Large</div>
+                        <div class="menu-price">9.99</div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-nonveg"></span> Super Nachos – Small</div>
+                        <div class="menu-price">6.99</div>
+                    </div>
+                    <div class="menu-desc">Homemade chips, taco meat, lettuce, tomato, taco sauce &amp; choice of cheese sauce or guacamole (extra cost).</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-nonveg"></span> Super Nachos – Large</div>
+                        <div class="menu-price">9.99</div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-veg"></span> Mac N Cheese</div>
+                        <div class="menu-price">5.49</div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-veg"></span> Breaded Wisconsin Cheese Curds</div>
+                        <div class="menu-price">7.99</div>
+                    </div>
+                    <div class="menu-desc">Regular or spicy.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-nonveg"></span> Breaded Chicken Egg Rolls (3)</div>
+                        <div class="menu-price">7.99</div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-nonveg"></span> Breaded Corn Nuggets – Half Pound</div>
+                        <div class="menu-price">6.99</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-col">
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-veg"></span> Mozzarella Stix</div>
+                        <div class="menu-price">5.99</div>
+                    </div>
+                    <div class="menu-desc">Order of 6.</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-veg"></span> Mozzarella Stix (10)</div>
+                        <div class="menu-price">10.99</div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-veg"></span> Breaded Mushrooms – Half Pound</div>
+                        <div class="menu-price">7.99</div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-veg"></span> Breaded Pickle‑Os – Half Pound</div>
+                        <div class="menu-price">6.99</div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-veg"></span> Jalapeño Poppers</div>
+                        <div class="menu-price">6.99</div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-veg"></span> Cream Cheese Jalapeño Poppers</div>
+                        <div class="menu-price">6.99</div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-veg"></span> Homemade Chips &amp; Salsa</div>
+                        <div class="menu-price">4.59</div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-veg"></span> Fruit Chill‑a Dips – Single</div>
+                        <div class="menu-price">3.49</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-veg"></span> Fruit Chill‑a Dips – Large</div>
+                        <div class="menu-price">4.99</div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-nonveg"></span> Mini Corn Dogs – Half Pound</div>
+                        <div class="menu-price">6.99</div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-nonveg"></span> Gizzard Bites – 5 oz</div>
+                        <div class="menu-price">4.99</div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-nonveg"></span> Corn Dogs (2)</div>
+                        <div class="menu-price">4.59</div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-nonveg"></span> Buffalo Chicken Nachos</div>
+                        <div class="menu-price">9.99</div>
+                    </div>
+                    <div class="menu-desc">Homemade chips topped with buffalo chicken, mozzarella cheese, jalapeños &amp; blue cheese dressing.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Burgers -->
+    <section id="burgers" class="menu-section">
+        <h3 class="section-title">Burgers</h3>
+        <div class="section-tag">Fresh‑Grilled Classics</div>
+
+        <div class="menu-grid">
+            <div class="menu-col">
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-nonveg"></span> Single Burger</div>
+                        <div class="menu-price">6.99</div>
+                    </div>
+                    <div class="menu-desc">1/3 lb burger with your choice of toppings.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-nonveg"></span> Double Burger</div>
+                        <div class="menu-price">9.99</div>
+                    </div>
+                    <div class="menu-desc">2/3 lb burger with your choice of toppings.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-nonveg"></span> Mini Sliders (3)</div>
+                        <div class="menu-price">6.99</div>
+                    </div>
+                    <div class="menu-desc">Three bite‑size burgers topped with pickle &amp; onion.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-nonveg"></span> Body Slam</div>
+                        <div class="menu-price">11.99</div>
+                    </div>
+                    <div class="menu-desc">We take a full pound of grilled meat &amp; somehow fit it on a bun with all your favorite toppings.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-nonveg"></span> Make it a Grilled Cheese Burger</div>
+                        <div class="menu-price">+2.99</div>
+                    </div>
+                    <div class="menu-desc">Burger bun substituted with two grilled cheese sandwiches.</div>
+                </div>
+            </div>
+
+            <div class="menu-col">
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-nonveg"></span> All Burgers</div>
+                        <div class="menu-price">9.49</div>
+                    </div>
+                    <div class="menu-desc">Served plain with your choice of lettuce, tomato, pickle or onion. American, Swiss or Pepper Jack cheese, mushrooms, bacon or jalapeños extra.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specialty Burgers -->
+    <section id="special-burgers" class="menu-section">
+        <h3 class="section-title">Specialty Burgers</h3>
+        <div class="section-tag">Chef Favorites</div>
+
+        <div class="menu-grid">
+            <div class="menu-col">
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-nonveg"></span> The Hay‑Stack</div>
+                        <div class="menu-price">9.49</div>
+                    </div>
+                    <div class="menu-desc">Single burger served open faced on Texas toast topped with home‑cut fries, queso &amp; pepperoni.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-nonveg"></span> Pepperoni Pizza Burger</div>
+                        <div class="menu-price">9.49</div>
+                    </div>
+                    <div class="menu-desc">Marinara, pepperoni, mozzarella &amp; Parmesan cheese.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-nonveg"></span> Philly Burger</div>
+                        <div class="menu-price">9.49</div>
+                    </div>
+                    <div class="menu-desc">Grilled onions, peppers &amp; a dash of Country Bob’s steak sauce with Swiss cheese.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-nonveg"></span> Chili Burger</div>
+                        <div class="menu-price">9.49</div>
+                    </div>
+                    <div class="menu-desc">Single burger topped with our toasted buns &amp; chili, onions and shredded cheese.</div>
+                </div>
+            </div>
+
+            <div class="menu-col">
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-nonveg"></span> Southwest Burger</div>
+                        <div class="menu-price">9.49</div>
+                    </div>
+                    <div class="menu-desc">Onion rings, bacon, BBQ sauce &amp; melted American cheese.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-nonveg"></span> Bacon Mushroom Melt</div>
+                        <div class="menu-price">9.49</div>
+                    </div>
+                    <div class="menu-desc">Mushrooms, bacon &amp; hot queso.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-nonveg"></span> California Burger</div>
+                        <div class="menu-price">9.49</div>
+                    </div>
+                    <div class="menu-desc">Guacamole, mushroom &amp; Swiss cheese.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-nonveg"></span> Sautéed Mushroom Swiss Burger</div>
+                        <div class="menu-price">9.49</div>
+                    </div>
+                    <div class="menu-desc">Sautéed mushrooms topped with melted Swiss cheese.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Phillies & Sandwiches -->
+    <section id="phillies" class="menu-section">
+        <h3 class="section-title">Phillies, Sandwiches &amp; More</h3>
+        <div class="section-tag">Grilled Favorites</div>
+
+        <div class="menu-grid">
+            <div class="menu-col">
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-nonveg"></span> Spinner Club</div>
+                        <div class="menu-price">9.99</div>
+                    </div>
+                    <div class="menu-desc">Roast beef, ham, bacon, American &amp; Swiss cheese, lettuce, tomato &amp; mayo on Texas toast.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-nonveg"></span> Ultimate Grilled Cheese</div>
+                        <div class="menu-price">8.99</div>
+                    </div>
+                    <div class="menu-desc">Three slices of grilled bread stacked with American, Swiss &amp; cheddar cheeses.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-nonveg"></span> French Dip</div>
+                        <div class="menu-price">8.99</div>
+                    </div>
+                    <div class="menu-desc">Roast beef topped with melted Swiss cheese, served with au jus and a side of Texas toast.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-nonveg"></span> Roast Beef Melt</div>
+                        <div class="menu-price">9.99</div>
+                    </div>
+                    <div class="menu-desc">Roast beef, grilled onions &amp; Swiss cheese served open faced on Texas toast.</div>
+                </div>
+            </div>
+
+            <div class="menu-col">
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-nonveg"></span> Philly Sandwich</div>
+                        <div class="menu-price">8.99</div>
+                    </div>
+                    <div class="menu-desc">Thin‑sliced roast beef, grilled onions, peppers &amp; Swiss cheese on a toasted bun.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-nonveg"></span> Chicken Bacon Ranch Philly</div>
+                        <div class="menu-price">8.99</div>
+                    </div>
+                    <div class="menu-desc">Grilled chicken, bacon, ranch &amp; Swiss cheese on a Philly roll.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-nonveg"></span> Chicken Sandwich</div>
+                        <div class="menu-price">8.99</div>
+                    </div>
+                    <div class="menu-desc">Grilled or crispy chicken breast with lettuce &amp; tomato.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-nonveg"></span> BLT</div>
+                        <div class="menu-price">8.99</div>
+                    </div>
+                    <div class="menu-desc">Bacon, lettuce &amp; tomato on Texas toast.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Salads -->
+    <section id="salads" class="menu-section">
+        <h3 class="section-title">Salads</h3>
+        <div class="section-tag">Fresh Greens</div>
+
+        <div class="menu-grid">
+            <div class="menu-col">
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-veg"></span> Shell‑less Taco Salad – Small</div>
+                        <div class="menu-price">7.99</div>
+                    </div>
+                    <div class="menu-desc">Lettuce, tomato, cheese, taco‑seasoned beef &amp; side of tortilla chips.</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-nonveg"></span> Shell‑less Taco Salad – Large</div>
+                        <div class="menu-price">10.99</div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-nonveg"></span> Santa Fe Chicken Salad – Small</div>
+                        <div class="menu-price">7.99</div>
+                    </div>
+                    <div class="menu-desc">Lettuce, tomato, cheese, tortilla strips &amp; seasoned chicken.</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-nonveg"></span> Santa Fe Chicken Salad – Large</div>
+                        <div class="menu-price">10.99</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-col">
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-veg"></span> House Salad – Small</div>
+                        <div class="menu-price">3.99</div>
+                    </div>
+                    <div class="menu-desc">Lettuce, tomato &amp; cheese.</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-veg"></span> House Salad – Large</div>
+                        <div class="menu-price">7.99</div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-veg"></span> Side Salad</div>
+                        <div class="menu-price">2.99</div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name">Dressings Available</div>
+                        <div class="menu-price"></div>
+                    </div>
+                    <div class="menu-desc">1000 Island, Blue Cheese, Italian, Dorothy Lynch, Honey Mustard, Ranch, Mexi‑Ranch.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wraps -->
+    <section id="wraps" class="menu-section">
+        <h3 class="section-title">Wraps</h3>
+        <div class="section-tag">Rolled &amp; Toasted</div>
+
+        <div class="menu-grid">
+            <div class="menu-col">
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-nonveg"></span> California Chicken Wrap</div>
+                        <div class="menu-price">9.49</div>
+                    </div>
+                    <div class="menu-desc">Grilled chicken, lettuce, tomato &amp; guacamole.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-nonveg"></span> Santa Fe Chicken Wrap</div>
+                        <div class="menu-price">9.49</div>
+                    </div>
+                    <div class="menu-desc">Grilled chicken, lettuce, tomato, corn, cheese &amp; Mexi‑Ranch.</div>
+                </div>
+            </div>
+
+            <div class="menu-col">
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-nonveg"></span> Chicken Wrap</div>
+                        <div class="menu-price">8.99</div>
+                    </div>
+                    <div class="menu-desc">Choice of grilled or crispy breast with your choice of wing sauce, lettuce &amp; cheese.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-nonveg"></span> BLT Wrap</div>
+                        <div class="menu-price">8.99</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Chicken Coop (Wings) -->
+    <section id="chicken-coop" class="menu-section">
+        <h3 class="section-title">The Chicken Coop</h3>
+        <div class="section-tag">Wings &amp; Strips</div>
+
+        <div class="menu-grid">
+            <div class="menu-col">
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-nonveg"></span> Bone‑In Wings (5)</div>
+                        <div class="menu-price">7.99</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-nonveg"></span> Bone‑In Wings (10)</div>
+                        <div class="menu-price">13.99</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-nonveg"></span> Bone‑In Wings (20)</div>
+                        <div class="menu-price">24.99</div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-nonveg"></span> Boneless Wings (8)</div>
+                        <div class="menu-price">7.99</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-nonveg"></span> Boneless Wings (16)</div>
+                        <div class="menu-price">13.99</div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-nonveg"></span> Chicken Strips (4)</div>
+                        <div class="menu-price">7.99</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-col">
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name">Sauce Flavors</div>
+                        <div class="menu-price"></div>
+                    </div>
+                    <div class="menu-desc">
+                        Parmesan Garlic, Sweet Chili, Zesty Asian Orange, Mild Buffalo, Nuclear Ghost Pepper, Honey Sriracha, Atomic Parmesan Garlic, Spicy BBQ, Gochujang Korean Pepper.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mexican -->
+    <section id="mexican" class="menu-section">
+        <h3 class="section-title">Mexican</h3>
+        <div class="section-tag">Tex‑Mex Plates</div>
+
+        <div class="menu-grid">
+            <div class="menu-col">
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-nonveg"></span> Big A$$ Taco Beef 5‑Pack</div>
+                        <div class="menu-price">6.99</div>
+                    </div>
+                    <div class="menu-desc">Seasoned beef tacos with chips &amp; salsa.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-nonveg"></span> Taco Burger</div>
+                        <div class="menu-price">4.49</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-col">
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-nonveg"></span> Cheese Quesadilla – Half</div>
+                        <div class="menu-price">7.99</div>
+                    </div>
+                    <div class="menu-desc">Choice of chicken, steak or cheese.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-nonveg"></span> Cheese Quesadilla – Whole</div>
+                        <div class="menu-price">9.99</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sides -->
+    <section id="sides" class="menu-section">
+        <h3 class="section-title">Sides</h3>
+        <div class="section-tag">Crispy Add‑Ons</div>
+
+        <div class="menu-grid">
+            <div class="menu-col">
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-veg"></span> Sweet Potato Fries – Single</div>
+                        <div class="menu-price">3.99</div>
+                    </div>
+                    <div class="menu-desc">Lightly dusted with cinnamon.</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-veg"></span> Sweet Potato Fries – Basket</div>
+                        <div class="menu-price">6.99</div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-veg"></span> Garlic Parmesan Fries – Single</div>
+                        <div class="menu-price">3.69</div>
+                    </div>
+                    <div class="menu-desc">Crinkle or home‑cut fries coated in garlic Parmesan sauce.</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-veg"></span> Garlic Parmesan Fries – Basket</div>
+                        <div class="menu-price">4.89</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-col">
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-veg"></span> Sweet Chili Fries – Single</div>
+                        <div class="menu-price">3.69</div>
+                    </div>
+                    <div class="menu-desc">Crinkle or home‑cut fries coated in sweet chili sauce.</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-veg"></span> Sweet Chili Fries – Basket</div>
+                        <div class="menu-price">4.89</div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-veg"></span> Buffalo Chips – Single</div>
+                        <div class="menu-price">3.99</div>
+                    </div>
+                    <div class="menu-desc">Zesty breaded potato slices served with a side of ranch.</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-veg"></span> Buffalo Chips – Basket</div>
+                        <div class="menu-price">6.99</div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-veg"></span> Onion Rings – Single</div>
+                        <div class="menu-price">4.49</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-veg"></span> Onion Rings – Basket</div>
+                        <div class="menu-price">6.99</div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-veg"></span> French Fries – Single</div>
+                        <div class="menu-price">2.89</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-veg"></span> French Fries – Basket</div>
+                        <div class="menu-price">4.89</div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-veg"></span> Tater Tots – Single</div>
+                        <div class="menu-price">2.89</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-veg"></span> Tater Tots – Basket</div>
+                        <div class="menu-price">4.89</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additions -->
+    <section id="additions" class="menu-section">
+        <h3 class="section-title">Additions</h3>
+        <div class="section-tag">Extras &amp; Toppings</div>
+
+        <div class="menu-grid">
+            <div class="menu-col">
+                <div class="menu-item"><div class="menu-item-top">
+                    <div class="menu-name"><span class="dot dot-veg"></span> Sour Cream</div>
+                    <div class="menu-price">0.45</div>
+                </div></div>
+                <div class="menu-item"><div class="menu-item-top">
+                    <div class="menu-name"><span class="dot dot-veg"></span> Hot Cheese</div>
+                    <div class="menu-price">1.49</div>
+                </div></div>
+                <div class="menu-item"><div class="menu-item-top">
+                    <div class="menu-name"><span class="dot dot-veg"></span> Chili</div>
+                    <div class="menu-price">1.89</div>
+                </div></div>
+                <div class="menu-item"><div class="menu-item-top">
+                    <div class="menu-name"><span class="dot dot-veg"></span> Cheese</div>
+                    <div class="menu-price">0.65</div>
+                </div></div>
+                <div class="menu-item"><div class="menu-item-top">
+                    <div class="menu-name"><span class="dot dot-veg"></span> Grilled Mushrooms</div>
+                    <div class="menu-price">0.69</div>
+                </div></div>
+            </div>
+
+            <div class="menu-col">
+                <div class="menu-item"><div class="menu-item-top">
+                    <div class="menu-name"><span class="dot dot-veg"></span> Jalapeños</div>
+                    <div class="menu-price">0.99</div>
+                </div></div>
+                <div class="menu-item"><div class="menu-item-top">
+                    <div class="menu-name"><span class="dot dot-veg"></span> Guacamole</div>
+                    <div class="menu-price">1.99</div>
+                </div></div>
+                <div class="menu-item"><div class="menu-item-top">
+                    <div class="menu-name"><span class="dot dot-veg"></span> Extra Sauces</div>
+                    <div class="menu-price">0.30</div>
+                </div></div>
+                <div class="menu-item"><div class="menu-item-top">
+                    <div class="menu-name"><span class="dot dot-nonveg"></span> Bacon</div>
+                    <div class="menu-price">1.99</div>
+                </div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Drinks -->
+    <section id="drinks" class="menu-section">
+        <h3 class="section-title">Drinks</h3>
+        <div class="section-tag">Soft Drinks &amp; Energy</div>
+
+        <div class="menu-grid">
+            <div class="menu-col">
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-veg"></span> Soft Drinks 20 oz</div>
+                        <div class="menu-price">2.00</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-veg"></span> Soft Drinks 22 oz</div>
+                        <div class="menu-price">2.50</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-veg"></span> Soft Drinks 32 oz</div>
+                        <div class="menu-price">3.00</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-veg"></span> Red Bull (all varieties)</div>
+                        <div class="menu-price">4.00</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name"><span class="dot dot-veg"></span> Bottled Water</div>
+                        <div class="menu-price">1.50</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-col">
+                <div class="menu-item">
+                    <div class="menu-desc">
+                        Fountain flavors: Dr Pepper, Mt. Dew, Sierra Mist, Lemonade, Pepsi, Diet Pepsi, Iced Tea.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kids Meal -->
+    <section id="kids-meal" class="menu-section">
+        <h3 class="section-title">Kids Meal</h3>
+        <div class="section-tag">For Little Spinners</div>
+
+        <div class="menu-grid">
+            <div class="menu-col">
+                <div class="menu-item">
+                    <div class="menu-desc">
+                        All kids meals come with choice of fries or tots and small drink.
+                    </div>
+                </div>
+
+                <div class="menu-item"><div class="menu-item-top">
+                    <div class="menu-name"><span class="dot dot-nonveg"></span> Mini Sliders (2)</div>
+                    <div class="menu-price">5.99</div>
+                </div></div>
+                <div class="menu-item"><div class="menu-item-top">
+                    <div class="menu-name"><span class="dot dot-nonveg"></span> Mini Corn Dogs (5)</div>
+                    <div class="menu-price">5.99</div>
+                </div></div>
+                <div class="menu-item"><div class="menu-item-top">
+                    <div class="menu-name"><span class="dot dot-nonveg"></span> Chicken Strips (2)</div>
+                    <div class="menu-price">5.99</div>
+                </div></div>
+                <div class="menu-item"><div class="menu-item-top">
+                    <div class="menu-name"><span class="dot dot-veg"></span> Mac N Cheese Bites (3)</div>
+                    <div class="menu-price">5.99</div>
+                </div></div>
+                <div class="menu-item"><div class="menu-item-top">
+                    <div class="menu-name"><span class="dot dot-nonveg"></span> Grilled Cheese Sandwich</div>
+                    <div class="menu-price">5.99</div>
+                </div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Daily Specials -->
+    <section id="daily-specials" class="menu-section">
+        <h3 class="section-title">Daily Specials</h3>
+        <div class="section-tag">All‑Day Deals</div>
+
+        <div class="menu-grid">
+            <div class="menu-col">
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name">Monday</div>
+                        <div class="menu-price">8.49</div>
+                    </div>
+                    <div class="menu-desc">Feature of the week &amp; home‑cut fries – all day.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name">Tuesday</div>
+                        <div class="menu-price">9.99</div>
+                    </div>
+                    <div class="menu-desc">Chicken quesadilla with chips &amp; salsa – all day.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name">Wednesday</div>
+                        <div class="menu-price">8.49</div>
+                    </div>
+                    <div class="menu-desc">Patty melt &amp; tots with choice of original or Southwest patty melt – all day.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name">Thursday</div>
+                        <div class="menu-price">7.99</div>
+                    </div>
+                    <div class="menu-desc">Big A$$ beef taco, chips &amp; salsa – all day.</div>
+                </div>
+            </div>
+
+            <div class="menu-col">
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name">Friday</div>
+                        <div class="menu-price">12.99</div>
+                    </div>
+                    <div class="menu-desc">Chicken fried steak, 2 sides, chicken or beef gravy and Texas toast – all day.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name">Saturday</div>
+                        <div class="menu-price">9.99</div>
+                    </div>
+                    <div class="menu-desc">French dip with au jus sauce &amp; home‑cut fries – all day.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <div class="menu-name">Sunday</div>
+                        <div class="menu-price">6.99</div>
+                    </div>
+                    <div class="menu-desc">Two chili cheese dogs &amp; home‑cut fries.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+</body>
+</html>
